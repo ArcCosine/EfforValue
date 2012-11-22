@@ -1,47 +1,121 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
-    <title>Efforvalue by ArcCosine</title>
-  </head>
-
-  <body>
-
-    <header>
-      <div class="container">
-        <h1>Efforvalue</h1>
-        <h2>Caliculate effortvalue.</h2>
-
-        <section id="downloads">
-          <a href="https://github.com/ArcCosine/EfforValue/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/ArcCosine/EfforValue/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/ArcCosine/EfforValue" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
-
-    <div class="container">
-      <section id="main_content">
-        <h1>EfforValue</h1>
-
-<p>Caliculate effortvalue.
-This is public domain software.</p>
-
-<h1>Description</h1>
-
-<p>This tool caliculate Pokémon's effortvalues.(See:<a href="http://bulbapedia.bulbagarden.net/wiki/Effort_values">http://bulbapedia.bulbagarden.net/wiki/Effort_values</a>)
-And, us to caliculate the value of wasted effort.
-THis is a very simple tool.
-Please help to train Pokémon.</p>
-      </section>
-    </div>
-
-    
-  </body>
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Supplementary tool calculation effort</title>
+	<link rel="stylesheet" href="effort_value.css" />
+<script type="text/javascript" src="mm.min.js"></script>
+<script type="text/javascript" src="effort-min.js"></script>
+</head>
+<body>
+<header>努力値計算補助ツール</header>
+<section class="box">
+<h1>努力値計算</h1>
+<div class="effortarea">
+	<div>
+		<label for="pocname">ポケモン名</label>
+		<input id="pocname" type="text" />
+		<label for="personality">性格</label>
+		<select id="personality" name=""></select>
+		<label for="level">レベル</label>
+		<input id="level" type="text" value="50" />
+		<input type="button" id="calculate" value="計算" />
+	</div>
+	<div>
+		<span>個体値:</span>
+		<label for="ivhp">HP</label>
+		<input id="ivhp" type="text" value="31" />
+		<label for="ivattack">攻撃</label>
+		<input id="ivattack" type="text" value="31"  />
+		<label for="ivdefense">防御</label>
+		<input id="ivdefense" type="text" value="31"  />
+		<label for="ivspecialattack">特攻</label>
+		<input id="ivspecialattack" type="text" value="31"  />
+		<label for="ivspecialdefense">特防</label>
+		<input id="ivspecialdefense" type="text" value="31"  />
+		<label for="ivspeed">素早さ</label>
+		<input id="ivspeed" type="text" value="31"  />
+	</div>
+	<div>
+		<span>努力値:</span>
+		<label for="evhp">HP</label>
+		<input id="evhp" type="text" />
+		<label for="evattack">攻撃</label>
+		<input id="evattack" type="text" />
+		<label for="evdefense">防御</label>
+		<input id="evdefense" type="text" />
+		<label for="evspecialattack">特攻</label>
+		<input id="evspecialattack" type="text" />
+		<label for="evspecialdefense">特防</label>
+		<input id="evspecialdefense" type="text" />
+		<label for="evspeed">素早さ</label>
+		<input id="evspeed" type="text" />
+	</div>
+	<textarea id="result" name="" rows="10" cols="30"></textarea>
+</div>
+</section>
+<section class="box">
+<h1>参考値</h1>
+<h2 id="physicalEndurance">物理耐久</h2>
+<textarea class="endurance" name="" rows="15" cols="30"></textarea>
+<h2 id="specialEndurance">特殊耐久</h2>
+<textarea class="endurance" rows="15" cols="30"></textarea>
+<h2 id="speedParam">すばやさ目安</h2>
+<textarea class="endurance" rows="10" cols="30"></textarea>
+</section>
+<section class="field cl">
+<h1>説明</h1>
+<h2>努力値計算の操作説明</h2>
+<ul>
+	<li>ポケモン名の所にポケモンの名前を入力してください。</li>
+	<li>性格のプルダウンを選択してください。</li>
+	<li>必要であれば、レベル、個体値を変えてください。</li>
+	<li>努力値欄は空白の場合、0とみなされます。</li>
+	<li>計算ボタンをクリックすると、その努力値に合わせた計算結果が出力されます。</li>
+</ul>
+<h2>参考値について</h2>
+<ul>
+	<li>参考値はメジャーどころの攻撃をどの程度耐えるかを表示します。</li>
+	<li>すばやさは適当な種族値で出しています。</li>
+	<li>今後アップデートする事によってより見やすく、より分かりやすくなる予定です。</li>
+	<li>抑えどころのポケモンや技がありましたら、参考にしたいと思いますので、ご連絡頂けると幸いです。</li>
+</ul>
+<h2>推奨環境</h2>
+<p>下記のブラウザで動作確認を行なっています。Internet Explorerでの動作保証はいたしません。</p>
+<ul>
+	<li>Opera </li>
+	<li>Google Chrome</li>
+	<li>Firefox</li>
+	<li>Safari</li>
+</ul>
+<h2>連絡先</h2>
+<ul>
+	<li>Twitter:<a href="http://twitter.com/ArcCosine">ArcCosine</a></li>
+	<li>Blog:<a href="http://blog.livedoor.jp/arccosine-pockemon/">デモドリ -　ポケモンメモ</a></li>
+</ul>
+</section>
+<section class="field">
+<h1>謝辞</h1>
+<h2>参考文献</h2>
+<p>作成にあたって、下記のサイトのコードを<del>丸パクリ</del>参考にしました。ありがとうございます。</p>
+<ul>
+	<li><a href="http://www.ztv.ne.jp/h2m4vsk5/pokememo/evcalc.html">努力値の無駄計算機</a></li>
+	<li><a href="http://la.ma.la/js/roma.html">JavaScriptでローマ字かな変換してみるテスト</a></li>
+	<li><a href="http://trainer.geo.jp/bw/dmjs5.html">ダメージ計算機 JS-5 for ポケモン ブラック/ホワイト</a></li>
+</ul>
+<h2>スペシャルサンクス</h2>
+<p>作成にあたって、以下の方からいただいた情報を参考にしました。ありがとうございます。</p>
+<ul>
+	<li><a href="http://maruamyu.net/">ミライいろ。</a>さん</li>
+	<li><a href="http://uupaa.hatenablog.com/">uupaa</a>さん</li>
+</ul>
+<h2>仕様ライブラリ</h2>
+<p>作成にあたって、下記のライブラリをフル活用しました。ありがとうございます。</p>
+<ul>
+	<li><a href="http://code.google.com/p/mofmof-js/">mofmof.js</a></li>
+</ul>
+</section>
+<section id="suggestlist"></section>
+<footer>&copy;Kindness 2012</footer>
+</body>
 </html>
