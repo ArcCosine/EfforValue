@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project name="effort" default="effort" basedir="..">
+  <target name="effort">
+	<concat destfile="effort.js" encoding="UTF-8" outputencoding="UTF-8">
+      <fileset dir="src" includes="*.js" />
+    </concat>        
+  </target>  
+  <target name="compress">
+   	  <antcall target="effort" />
+	  <apply executable="java" parallel="false">
+		  <filelist dir="./" files="effort.js" />
+		  <arg line="-jar" />
+		  <arg path="build/yuicompressor-2.4.2.jar" />
+		  <arg line="--charset UTF-8" />
+		  <srcfile />
+		  <arg line="-o" />
+		  <mapper type="glob" from="*.js" to="../*-min.js" />
+		  <targetfile />
+	  </apply>   
+  </target>
+</project>
