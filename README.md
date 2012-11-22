@@ -1,0 +1,4 @@
+EfforValue
+==========
+
+Caliculate effortvalue.
